@@ -1,0 +1,11 @@
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\bin\Debug\Lab_04_CaNhan.exe.config
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\bin\Debug\Lab_04_CaNhan.exe
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\bin\Debug\Lab_04_CaNhan.pdb
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.csproj.AssemblyReference.cache
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.Form1.resources
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.Properties.Resources.resources
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.csproj.GenerateResource.cache
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.csproj.CoreCompileInputs.cache
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.exe
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.pdb
+D:\Project\OPP-C#\Lab_04_CaNhan\Lab_04_CaNhan\obj\Debug\Lab_04_CaNhan.Form2.resources
