@@ -31,6 +31,7 @@ namespace Lab_04_CaNhan
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.textTenDN = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -172,6 +173,7 @@ namespace Lab_04_CaNhan
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textTenDN);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Màn hình đăng nhập";
             this.ResumeLayout(false);

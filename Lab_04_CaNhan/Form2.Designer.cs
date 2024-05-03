@@ -32,6 +32,7 @@ namespace Lab_04_CaNhan
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@ namespace Lab_04_CaNhan
             this.hOTENDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.eMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lUONGDataGridViewImageColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sPSELENCRYPTNHANVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLSVDataSet1 = new Lab_04_CaNhan.QLSVDataSet1();
             this.nHANVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qLSVDataSet = new Lab_04_CaNhan.QLSVDataSet();
             this.nHANVIENTableAdapter = new Lab_04_CaNhan.QLSVDataSetTableAdapters.NHANVIENTableAdapter();
@@ -60,9 +63,12 @@ namespace Lab_04_CaNhan
             this.button_Sua = new System.Windows.Forms.Button();
             this.button_Ghi = new System.Windows.Forms.Button();
             this.button_Thoat = new System.Windows.Forms.Button();
+            this.sP_SEL_ENCRYPT_NHANVIENTableAdapter = new Lab_04_CaNhan.QLSVDataSet1TableAdapters.SP_SEL_ENCRYPT_NHANVIENTableAdapter();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sPSELENCRYPTNHANVIENBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLSVDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHANVIENBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSVDataSet)).BeginInit();
             this.SuspendLayout();
@@ -71,7 +77,7 @@ namespace Lab_04_CaNhan
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(293, 12);
+            this.label1.Location = new System.Drawing.Point(349, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(291, 32);
             this.label1.TabIndex = 0;
@@ -202,7 +208,7 @@ namespace Lab_04_CaNhan
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.groupBox1.Location = new System.Drawing.Point(33, 57);
+            this.groupBox1.Location = new System.Drawing.Point(89, 72);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(831, 144);
             this.groupBox1.TabIndex = 14;
@@ -212,7 +218,7 @@ namespace Lab_04_CaNhan
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(33, 207);
+            this.groupBox2.Location = new System.Drawing.Point(89, 222);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(831, 161);
             this.groupBox2.TabIndex = 15;
@@ -227,7 +233,7 @@ namespace Lab_04_CaNhan
             this.hOTENDataGridViewTextBoxColumn,
             this.eMAILDataGridViewTextBoxColumn,
             this.lUONGDataGridViewImageColumn});
-            this.dataGridView1.DataSource = this.nHANVIENBindingSource;
+            this.dataGridView1.DataSource = this.sPSELENCRYPTNHANVIENBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 16);
             this.dataGridView1.Name = "dataGridView1";
@@ -240,7 +246,7 @@ namespace Lab_04_CaNhan
             this.mANVDataGridViewTextBoxColumn.DataPropertyName = "MANV";
             this.mANVDataGridViewTextBoxColumn.HeaderText = "MANV";
             this.mANVDataGridViewTextBoxColumn.Name = "mANVDataGridViewTextBoxColumn";
-            this.mANVDataGridViewTextBoxColumn.Width = 150;
+            this.mANVDataGridViewTextBoxColumn.Width = 120;
             // 
             // hOTENDataGridViewTextBoxColumn
             // 
@@ -263,7 +269,17 @@ namespace Lab_04_CaNhan
             this.lUONGDataGridViewImageColumn.Name = "lUONGDataGridViewImageColumn";
             this.lUONGDataGridViewImageColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.lUONGDataGridViewImageColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.lUONGDataGridViewImageColumn.Width = 240;
+            this.lUONGDataGridViewImageColumn.Width = 270;
+            // 
+            // sPSELENCRYPTNHANVIENBindingSource
+            // 
+            this.sPSELENCRYPTNHANVIENBindingSource.DataMember = "SP_SEL_ENCRYPT_NHANVIEN";
+            this.sPSELENCRYPTNHANVIENBindingSource.DataSource = this.qLSVDataSet1;
+            // 
+            // qLSVDataSet1
+            // 
+            this.qLSVDataSet1.DataSetName = "QLSVDataSet1";
+            this.qLSVDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nHANVIENBindingSource
             // 
@@ -281,8 +297,7 @@ namespace Lab_04_CaNhan
             // 
             // button_Them
             // 
-            this.button_Them.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.button_Them.Location = new System.Drawing.Point(87, 389);
+            this.button_Them.Location = new System.Drawing.Point(143, 404);
             this.button_Them.Name = "button_Them";
             this.button_Them.Size = new System.Drawing.Size(90, 24);
             this.button_Them.TabIndex = 16;
@@ -292,7 +307,7 @@ namespace Lab_04_CaNhan
             // 
             // button_Xoa
             // 
-            this.button_Xoa.Location = new System.Drawing.Point(264, 390);
+            this.button_Xoa.Location = new System.Drawing.Point(320, 405);
             this.button_Xoa.Name = "button_Xoa";
             this.button_Xoa.Size = new System.Drawing.Size(75, 23);
             this.button_Xoa.TabIndex = 17;
@@ -302,7 +317,7 @@ namespace Lab_04_CaNhan
             // 
             // button_Sua
             // 
-            this.button_Sua.Location = new System.Drawing.Point(427, 389);
+            this.button_Sua.Location = new System.Drawing.Point(483, 404);
             this.button_Sua.Name = "button_Sua";
             this.button_Sua.Size = new System.Drawing.Size(75, 23);
             this.button_Sua.TabIndex = 19;
@@ -311,7 +326,7 @@ namespace Lab_04_CaNhan
             // 
             // button_Ghi
             // 
-            this.button_Ghi.Location = new System.Drawing.Point(607, 390);
+            this.button_Ghi.Location = new System.Drawing.Point(663, 405);
             this.button_Ghi.Name = "button_Ghi";
             this.button_Ghi.Size = new System.Drawing.Size(75, 23);
             this.button_Ghi.TabIndex = 20;
@@ -321,7 +336,7 @@ namespace Lab_04_CaNhan
             // 
             // button_Thoat
             // 
-            this.button_Thoat.Location = new System.Drawing.Point(763, 390);
+            this.button_Thoat.Location = new System.Drawing.Point(819, 405);
             this.button_Thoat.Name = "button_Thoat";
             this.button_Thoat.Size = new System.Drawing.Size(75, 23);
             this.button_Thoat.TabIndex = 21;
@@ -329,11 +344,15 @@ namespace Lab_04_CaNhan
             this.button_Thoat.UseVisualStyleBackColor = true;
             this.button_Thoat.Click += new System.EventHandler(this.button_Thoat_Click);
             // 
+            // sP_SEL_ENCRYPT_NHANVIENTableAdapter
+            // 
+            this.sP_SEL_ENCRYPT_NHANVIENTableAdapter.ClearBeforeFill = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(893, 442);
+            this.ClientSize = new System.Drawing.Size(975, 489);
             this.Controls.Add(this.button_Thoat);
             this.Controls.Add(this.button_Ghi);
             this.Controls.Add(this.button_Sua);
@@ -342,6 +361,7 @@ namespace Lab_04_CaNhan
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form2";
             this.Text = "Form2";
@@ -350,6 +370,8 @@ namespace Lab_04_CaNhan
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sPSELENCRYPTNHANVIENBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLSVDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nHANVIENBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLSVDataSet)).EndInit();
             this.ResumeLayout(false);
@@ -374,7 +396,6 @@ namespace Lab_04_CaNhan
         private TextBox txtMatKhau;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private DataGridView dataGridView1;
         private QLSVDataSet qLSVDataSet;
         private BindingSource nHANVIENBindingSource;
         private QLSVDataSetTableAdapters.NHANVIENTableAdapter nHANVIENTableAdapter;
@@ -383,6 +404,10 @@ namespace Lab_04_CaNhan
         private Button button_Sua;
         private Button button_Ghi;
         private Button button_Thoat;
+        private QLSVDataSet1 qLSVDataSet1;
+        private BindingSource sPSELENCRYPTNHANVIENBindingSource;
+        private QLSVDataSet1TableAdapters.SP_SEL_ENCRYPT_NHANVIENTableAdapter sP_SEL_ENCRYPT_NHANVIENTableAdapter;
+        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn mANVDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn hOTENDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn eMAILDataGridViewTextBoxColumn;

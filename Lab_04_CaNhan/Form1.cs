@@ -21,53 +21,60 @@ namespace Lab_04_CaNhan
         {
             InitializeComponent();
         }
-
-        private void dangnhap_Click(object sender, EventArgs e)
+        public void CheckSQLState()
         {
             if (sqlCon == null)
                 sqlCon = new SqlConnection(strCon);
             if (sqlCon.State == ConnectionState.Closed)
                 sqlCon.Open();
+        }
+        public string EncryptPassword(string passwd)
+        {
+            string password;
+            byte[] hashByte;
+            byte[] passwd_byte = Encoding.UTF8.GetBytes(passwd);
+            if (nghenghiep == "SINHVIEN")
+            {
+                MD5 md5 = MD5.Create();
+                hashByte = md5.ComputeHash(passwd_byte);
+            }
+            else
+            {
+                SHA1 sha1 = SHA1.Create();
+                hashByte = sha1.ComputeHash(passwd_byte);
+            }
+            password = "0x" + BitConverter.ToString(hashByte).Replace("-", "");
+            return password;
+        }
+        private void dangnhap_Click(object sender, EventArgs e)
+        {
 
+            CheckSQLState();
             SqlCommand sqlCom = new SqlCommand();
             sqlCom.CommandType = CommandType.Text;
             string tendangnhap = textTenDN.Text.Trim();
             string password = textPassword.Text.Trim();
-            if (nghenghiep == "SINHVIEN")
-            {
-                byte[] pass_byte = Encoding.UTF8.GetBytes(password);
-                MD5 md5 = MD5.Create();
-                byte[] hashByte = md5.ComputeHash(pass_byte);
-                password = "0x" + BitConverter.ToString(hashByte).Replace("-", "");
-            }
-            else
-            {
-                byte[] pass_byte = Encoding.UTF8.GetBytes(password);
-                SHA1 sha1 = SHA1.Create();
-                byte[] hashByte = sha1.ComputeHash(pass_byte);
-                password = "0x" + BitConverter.ToString(hashByte).Replace("-", "");
-            }
+            
+            string en_password=EncryptPassword(password);
             sqlCom.Connection = sqlCon;
-            sqlCom.CommandText = "SELECT * FROM " + nghenghiep + " WHERE TENDN='" + tendangnhap + "' AND MATKHAU=" + password + "";
+            sqlCom.CommandText = "SELECT * FROM " + nghenghiep + " WHERE TENDN='" + tendangnhap + "' AND MATKHAU=" + en_password + "";
             try
             {
                 SqlDataReader reader = sqlCom.ExecuteReader();
                 if (reader.Read())
                 {
                     MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (nghenghiep == "NHANVIEN")
-                    {
                         this.Hide();
                         var form2 = new Form2();
                         form2.Closed += (s, args) => this.Close();
                         form2.Show();
-                    }
                 }
                 else
                     MessageBox.Show("Tên đăng nhập hoặc mật khẩu không hợp lệ", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show(ex.Message);
             }
             sqlCon.Close();
@@ -75,7 +82,9 @@ namespace Lab_04_CaNhan
 
         private void thoat_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult close = MessageBox.Show("Bạn muốn thoát?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (close == DialogResult.Yes)
+                Close();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
